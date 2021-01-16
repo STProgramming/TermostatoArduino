@@ -78,6 +78,7 @@ namespace Domus
             this.SearcherResult.Size = new System.Drawing.Size(313, 24);
             this.SearcherResult.TabIndex = 3;
             this.SearcherResult.Text = "here the result/searching/for";
+            this.SearcherResult.Visible = false;
             // 
             // Form1
             // 
@@ -92,6 +93,7 @@ namespace Domus
             this.Font = new System.Drawing.Font("Quicksand Book", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.SystemColors.Control;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.ImeMode = System.Windows.Forms.ImeMode.Off;
             this.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.Name = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

@@ -17,7 +17,22 @@ namespace Domus
         //gestione delle dipendenze
         Thread readThread = new Thread(Read);
         SerialPort MyPort = new SerialPort();
-        string message;//
+        string message;
+        string mainport;
+        string GreetingProtocoll = " im_arduino ";
+        string DataProtocoll = "1234567890. ";
+
+        public string Messsage
+        {
+            get
+            {
+                return message;
+            }
+            set
+            {
+                message = value;
+            }
+        }
         public Form1()
         {
             InitializeComponent();
@@ -25,33 +40,29 @@ namespace Domus
 
         private void SearchButton_Click(object sender, EventArgs e)
         {
-            
             //inizializzazione dell'oggett parametri standard immessi per la connessione alla porta di cui abbiamo bisongo
             MyPort.BaudRate = 9600; //implementazione del baudrate a 9600;
             MyPort.WriteTimeout = 200;
             MyPort.ReadTimeout = 1100;
+            StatusText.Text = "I'm searching for the sensor";
             string[] ports = SerialPort.GetPortNames();
             foreach(string port in ports)
             {
                 MyPort.PortName = port;
-                //una volta nominata la porta possso porcede alla connessione e alla cattura
-                if(MyPort.IsOpen)
+                SearcherResult.Text = "Search in all port available " + port;
+                MyPort.Open();
+                readThread.Start();
+                if (message.All(GreetingProtocoll.Contains) || message.All(DataProtocoll.Contains))
                 {
-                    //ascolta la porta
-                    readThread.Start();
-                    
+                    string mainport = MyPort.PortName;
+                    StatusText.Text = "Enstablish connection with the sensor";
                 }
-                else
+                else if(string.IsNullOrEmpty(message))
                 {
-                    try
-                    {
-                        MyPort.Open();
-                    }
-                    catch
-                    {
-                        //here some error's text
-                    }
+                    StatusText.Text = "Could not find the sensor retry";
                 }
+                readThread.Join();
+                MyPort.Close();
             }
         }
         public static void Read()
@@ -59,7 +70,7 @@ namespace Domus
             Form1 myObj = new Form1();
             try
             {
-                message = myObj.MyPort.ReadLine();
+                myObj.Messsage = myObj.MyPort.ReadLine();
             }
             catch (TimeoutException) { }
         }
