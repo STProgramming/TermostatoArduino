@@ -9,8 +9,6 @@ namespace Domus
 {
     static class Program
     {
-        //gestione delle dipendenze
-        static ThePort Name = new ThePort();
         /// <summary>
         /// Punto di ingresso principale dell'applicazione.
         /// </summary>
