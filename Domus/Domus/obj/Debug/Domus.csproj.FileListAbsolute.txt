@@ -1,0 +1,16 @@
+D:\STCorp-cartella utenti\Documenti\Project Software\Domus.Beta\Domus\Domus\bin\Debug\Domus.exe.config
+D:\STCorp-cartella utenti\Documenti\Project Software\Domus.Beta\Domus\Domus\bin\Debug\Domus.exe
+D:\STCorp-cartella utenti\Documenti\Project Software\Domus.Beta\Domus\Domus\bin\Debug\Domus.pdb
+D:\STCorp-cartella utenti\Documenti\Project Software\Domus.Beta\Domus\Domus\bin\Debug\Interop.WMPLib.dll
+D:\STCorp-cartella utenti\Documenti\Project Software\Domus.Beta\Domus\Domus\bin\Debug\AxInterop.WMPLib.dll
+D:\STCorp-cartella utenti\Documenti\Project Software\Domus.Beta\Domus\Domus\obj\Debug\Domus.csprojAssemblyReference.cache
+D:\STCorp-cartella utenti\Documenti\Project Software\Domus.Beta\Domus\Domus\obj\Debug\Interop.WMPLib.dll
+D:\STCorp-cartella utenti\Documenti\Project Software\Domus.Beta\Domus\Domus\obj\Debug\AxInterop.WMPLib.dll
+D:\STCorp-cartella utenti\Documenti\Project Software\Domus.Beta\Domus\Domus\obj\Debug\Domus.csproj.ResolveComReference.cache
+D:\STCorp-cartella utenti\Documenti\Project Software\Domus.Beta\Domus\Domus\obj\Debug\Domus.Form1.resources
+D:\STCorp-cartella utenti\Documenti\Project Software\Domus.Beta\Domus\Domus\obj\Debug\Domus.Properties.Resources.resources
+D:\STCorp-cartella utenti\Documenti\Project Software\Domus.Beta\Domus\Domus\obj\Debug\Domus.csproj.GenerateResource.cache
+D:\STCorp-cartella utenti\Documenti\Project Software\Domus.Beta\Domus\Domus\obj\Debug\Domus.csproj.CoreCompileInputs.cache
+D:\STCorp-cartella utenti\Documenti\Project Software\Domus.Beta\Domus\Domus\obj\Debug\Domus.exe
+D:\STCorp-cartella utenti\Documenti\Project Software\Domus.Beta\Domus\Domus\obj\Debug\Domus.pdb
+D:\STCorp-cartella utenti\Documenti\Project Software\Domus.Beta\Domus\Domus\obj\Debug\Domus.Form2.resources
