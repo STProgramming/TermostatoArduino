@@ -16,13 +16,25 @@ namespace Domus
     {
         //gestione delle dipendenze
         Thread readThread = new Thread(Read);
-        SerialPort MyPort = new SerialPort();
+        static SerialPort MyPort = new SerialPort();
         string message;
         string mainport;
         string GreetingProtocoll = " im_arduino ";
         string DataProtocoll = "1234567890. ";
 
-        public string Messsage
+        public string Mainport
+        {
+            get
+            {
+                return mainport;
+            }    
+            set
+            {
+                mainport = value;
+            }
+        }
+
+        public string Message
         {
             get
             {
@@ -45,34 +57,45 @@ namespace Domus
             MyPort.WriteTimeout = 200;
             MyPort.ReadTimeout = 1100;
             StatusText.Text = "I'm searching for the sensor";
+            readThread.Start();
             string[] ports = SerialPort.GetPortNames();
             foreach(string port in ports)
             {
                 MyPort.PortName = port;
-                SearcherResult.Text = "Search in all port available " + port;
                 MyPort.Open();
-                readThread.Start();
-                if (message.All(GreetingProtocoll.Contains) || message.All(DataProtocoll.Contains))
+                SearcherResult.Text = "Search in all port available " + port + " in the pc."; 
+                
+                if(string.IsNullOrEmpty(Message))
                 {
-                    string mainport = MyPort.PortName;
-                    StatusText.Text = "Enstablish connection with the sensor";
+                    Mainport = null;
                 }
-                else if(string.IsNullOrEmpty(message))
+                else
                 {
-                    StatusText.Text = "Could not find the sensor retry";
+                    Mainport = port;
                 }
                 readThread.Join();
                 MyPort.Close();
+            }
+            if(string.IsNullOrEmpty(mainport))
+            {
+                StatusText.Text = "It seems the sensor is not linked to the PC.";
+                SearcherResult.Visible = false;
+            }
+            else
+            {
+                StatusText.Text = "You will redirect to the application";
+                SearcherResult.Text = "Enstablish communication to " + mainport;
             }
         }
         public static void Read()
         {
             Form1 myObj = new Form1();
+            var message = myObj.Message;
             try
             {
-                myObj.Messsage = myObj.MyPort.ReadLine();
+                message = MyPort.ReadLine();
             }
-            catch (TimeoutException) { }
+            catch (TimeoutException) {  }
         }
     }
 }

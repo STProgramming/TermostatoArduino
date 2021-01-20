@@ -7,7 +7,7 @@ using System.IO.Ports;
 
 namespace Domus
 {
-    static class Program
+    static class Program 
     {
         /// <summary>
         /// Punto di ingresso principale dell'applicazione.
@@ -18,6 +18,12 @@ namespace Domus
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
+            Form1 myObj = new Form1();
+            while(!string.IsNullOrEmpty(myObj.Mainport))
+            {
+                Application.Run(new Form2());
+                
+            }
         }
     }
 }
